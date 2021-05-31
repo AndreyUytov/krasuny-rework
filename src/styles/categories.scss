@@ -1,0 +1,20 @@
+.page-main {
+  display: grid;
+  grid-template-columns: 1fr [content]10fr 1fr;
+}
+
+.categories {
+  grid-column: content;
+  margin-top: -360px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.categories__list {
+  display: grid;
+  grid-template-columns: repeat(4, 275px);
+  grid-template-rows: repeat(7, 146px);
+  grid-gap: 20px;
+}
