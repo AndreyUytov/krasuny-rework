@@ -1,0 +1,25 @@
+.about {
+  grid-column: content;
+  min-height: 905px;
+  margin-top: -440px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background-image: url('./../images/about.png');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+
+.about__left {
+  margin-bottom: 140px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.about__section-description {
+  width: 100%;
+}
