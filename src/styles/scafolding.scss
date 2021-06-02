@@ -50,6 +50,13 @@ input[type='radio'].visually-hidden {
   overflow: hidden;
 }
 
+// MAIN
+
+.page-main {
+  display: grid;
+  grid-template-columns: 1fr [content]10fr 1fr;
+}
+
 .list {
   margin: 0;
   padding: 0;
