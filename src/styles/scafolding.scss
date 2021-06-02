@@ -141,6 +141,8 @@ input[type='radio'].visually-hidden {
   background: #ffffff;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
+
+  overflow: hidden;
 }
 
 .card__img {
@@ -184,16 +186,30 @@ input[type='radio'].visually-hidden {
   color: #ecae53;
 }
 
+// Значки на большую карточку
+
+.present .card__present {
+  display: flex;
+}
+
+.marker .card__marker {
+  display: flex;
+}
+
 .card__present {
+  position: absolute;
+  top: 0px;
+  right: 0px;
   width: 57px;
   height: 76px;
 
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
 
   border: 1px solid var(--active);
   border-radius: 10px;
+  background-color: #fff;
 
   overflow: hidden;
 }
@@ -215,6 +231,36 @@ input[type='radio'].visually-hidden {
 
 .card__present-img {
   padding: 4px;
+  & img {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+}
+
+.card__marker {
+  position: absolute;
+  top: -45px;
+  left: -45px;
+
+  width: 90px;
+  height: 90px;
+  padding-bottom: 5px;
+
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+
+  text-align: center;
+
+  color: #fff;
+  background-color: #709fcc;
+
+  transform: rotate(-45deg);
 }
 
 // little card
