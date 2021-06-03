@@ -11,6 +11,8 @@ export default class {
     this.$prevButton = config.prevButton
     this.$nextButton = config.nextButton
 
+    this.changeCurrentXCallBack = config.changeCurrentXCallBack
+
     this.$markerList = config.markerList
 
     this.$currentCount = config.currentCount
@@ -81,17 +83,17 @@ export default class {
   }
 
   get maxX() {
-    // let widthContainer = this.$container.getBoundingClientRect().width
-    // let sliderListWidth = this.sliderItemsLength * this.step
-    //  оптимизировал подсчет ширины списка
-    return this.sliderList.scrollWidth
+    let widthContainer = this.$container.getBoundingClientRect().width
+    let sliderListWidth = this.$sliderList.scrollWidth
+    return widthContainer - sliderListWidth
   }
 
   get step() {
-    let marginItem = parseInt(getComputedStyle(this.$sliderItem).marginRight)
     let widthItem = this.$sliderItem.offsetWidth
 
-    return marginItem + widthItem
+    // Здесь число 20 это размер отступа в сетке в стилях у $sliderList,
+    // по хорошему нужно бы поправить, чтобы не было магических чисел ...
+    return 20 + widthItem
   }
 
   get currentX() {
@@ -212,6 +214,9 @@ export default class {
         this.updateButtonsDisabled()
         this.updateCounterSlider()
         this.updateMarkerList()
+        if (this.changeCurrentXCallBack) {
+          this.changeCurrentXCallBack(this)
+        }
       })
     }
   }

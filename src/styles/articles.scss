@@ -13,6 +13,9 @@
   width: 100%;
   margin-bottom: 40px;
 
+  display: flex;
+  justify-content: flex-start;
+
   overflow: hidden;
 }
 
@@ -25,6 +28,7 @@
   grid-template-rows: repeat(2, 275px);
   grid-auto-flow: column dense;
   grid-gap: 20px;
+  place-content: start;
 }
 
 .articles__item {
@@ -146,7 +150,7 @@
 }
 
 .articles__proggress {
-  width: 10%;
+  width: 1%;
   height: 100%;
 
   background-color: var(--akcent);
