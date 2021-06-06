@@ -1,0 +1,79 @@
+.popup-consultation {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  z-index: 2000;
+}
+
+.popup-selection__inner {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 9fr 9fr 1fr;
+  grid-gap: 40px;
+  place-items: center;
+}
+
+.popup-cosmetolog {
+  grid-column: 2 / 3;
+}
+
+.popup-assortment {
+  grid-column: 3 / 4;
+}
+
+.popup-selection {
+  padding: 144px 22px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #FFF6F3;
+}
+
+.popup-cosmetolog {
+  background-image: url('./../images/consultation-popup-fon.png');
+}
+
+.popup-assortment {
+  background-image: url('./../images/selection-popup-fon.png');
+}
+
+.popup-selection__title {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 24px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 44px;
+  text-align: center;
+
+  text-transform: uppercase;
+}
+
+.popup-selection__text {
+  max-width: 75%;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 40px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+  
+  text-align: center;
+}
