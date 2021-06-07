@@ -1,3 +1,5 @@
+<% var data = {banner: true} %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,15 +8,10 @@
     <title>Krasunya</title>
   </head>
   <body>
-     <%=
-    _.template(require('./../includes/header.html'))()%> <%=
-    _.template(require('./../includes/main.html'))()%> <%=
-    _.template(require('./../includes/footer.html'))()%>
-
-    <%=
-    _.template(require('./../includes/popup-menu.html'))()%>
-
-    <%=
-    _.template(require('./../includes/popup-consultation.html'))()%>
+    <%=_.template(require('./../includes/header.html'))(data)%>
+    <%=_.template(require('./../includes/main.html'))()%>
+    <%=_.template(require('./../includes/footer.html'))()%>
+    <%=_.template(require('./../includes/popup-menu.html'))()%>
+    <%=_.template(require('./../includes/popup-consultation.html'))()%>
   </body>
 </html>

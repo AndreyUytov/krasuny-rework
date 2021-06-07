@@ -1,6 +1,6 @@
 .page-header {
   width: 100%;
-  padding-bottom: 410px;
+  padding-bottom: 100px;
 
   display: grid;
   grid-template-columns: [left-gutter] 1fr [left-section]6fr [right-section]4fr [right-gutter]1fr;
@@ -8,6 +8,9 @@
   grid-column-gap: 20px;
 
   background-color: #fdfaec;
+  &--quiz {
+    background-color: transparent;
+  }
 }
 
 .page-header__fix-section {
@@ -22,6 +25,9 @@
 
   border-bottom-right-radius: 45px;
   background-color: var(--akcent);
+
+  box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.15);
+
   z-index: 1000;
 }
 
@@ -58,7 +64,6 @@
   grid-column: right-section;
 
   padding: 24px 0px;
-  margin-bottom: 100px;
 
   display: flex;
   justify-content: flex-end;
@@ -81,109 +86,23 @@
   }
 }
 
-.page-header__banner {
-  grid-column: left-section / right-gutter;
-
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: [one]auto;
-}
-
-.banner__left-section {
-  grid-column: 1 / 7;
-  grid-row: one;
+.quiz__progress {
+  width: 200px;
+  height: 8px;
+  margin-left: auto;
 
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
 
-  z-index: 1;
+  background-color: rgba($color: #ffffff, $alpha: 0.3);
+  border-radius: 4px;
 }
 
-.banner__slogan {
-  width: 100%;
-  margin-bottom: 35px;
+.quiz__progress-bar {
+  width: 60%;
+  height: 100%;
 
-  display: flex;
-
-  font-style: normal;
-  font-weight: bold;
-  font-size: 60px;
-  line-height: 68px;
-  text-transform: uppercase;
-
-  color: #333333;
-}
-
-.banner__info {
-  width: calc(2 / 3 * 100%);
-  margin-bottom: 57px;
-
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 26px;
-
-  color: #333333;
-}
-
-.banner__right-section {
-  grid-column: 5 / -1;
-  grid-row: one;
-
-  display: flex;
-  justify-content: center;
-
-  background-image: linear-gradient(
-      90deg,
-      #ffffff 0%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    url('./../images/banner-fon.png');
-}
-
-.banner__list {
-  display: flex;
-  align-items: flex-end;
-}
-
-.banner__item {
-  position: relative;
-  &:first-of-type {
-    z-index: 1;
-  }
-
-  &:last-of-type .banner__link {
-    left: -40px;
-    bottom: -32px;
-  }
-}
-
-.banner__link {
-  position: relative;
-  bottom: -50px;
-
-  & .banner__little-card {
-    position: fixed;
-    display: none;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: -25px;
-      left: -25px;
-
-      width: 36px;
-      height: 36px;
-
-      border-radius: 50%;
-
-      background-image: url('./../images/pointer.png');
-      background-repeat: no-repeat;
-      background-position: center;
-
-      z-index: 1000;
-    }
-  }
+  background: #ffffff;
+  border-radius: 4px 0px 0px 4px;
 }

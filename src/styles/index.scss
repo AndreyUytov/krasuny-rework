@@ -3,7 +3,9 @@
 @import './../fonts/fonts.scss';
 @import './scafolding.scss';
 
+// Главная страница
 @import './header.scss';
+@import './banner.scss';
 @import './categories.scss';
 @import './about.scss';
 @import './popular.scss';
@@ -12,6 +14,9 @@
 @import './feedback.scss';
 @import './client.scss';
 @import './footer.scss';
+
+// Старница опроса
+@import './quiz.scss';
 
 // popups
 @import './popup-menu.scss';
