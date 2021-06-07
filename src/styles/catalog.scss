@@ -3,7 +3,7 @@
   margin-bottom: 150px;
 
   display: grid;
-  grid-template-columns: [left]4fr [catalog]7fr 1fr;
+  grid-template-columns: [left]4fr [catalog]8fr;
   grid-template-rows: auto [catalog]1fr;
   grid-column-gap: 40px;
 }
@@ -14,6 +14,7 @@
 
   display: grid;
   grid-template-columns: 1fr [content]3fr;
+  grid-gap: 20px;
 
   background: #fff6f3;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
@@ -49,6 +50,7 @@
 
   display: grid;
   grid-template-columns: 1fr [content]3fr;
+  grid-gap: 20px;
 
   background: #fff6f3;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
@@ -62,4 +64,11 @@
 .catalog-right {
   grid-column: catalog;
   grid-row: catalog;
+
+  display: grid;
+  grid-template-columns: 7fr 1fr;
+}
+
+.catalog-right__wrapper {
+  grid-column: 1;
 }
