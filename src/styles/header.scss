@@ -1,16 +1,22 @@
+.index-page .page-header {
+  padding-bottom: 100px;
+
+  background-color: #fdfaec;
+}
+
+.quiz-page .page-header {
+  padding-bottom: 80px;
+}
+
 .page-header {
   width: 100%;
-  padding-bottom: 100px;
 
   display: grid;
   grid-template-columns: [left-gutter] 1fr [left-section]6fr [right-section]4fr [right-gutter]1fr;
   grid-template-rows: auto [banner]1fr;
   grid-column-gap: 20px;
 
-  background-color: #fdfaec;
-  &--quiz {
-    background-color: transparent;
-  }
+  background-color: transparent;
 }
 
 .page-header__fix-section {
