@@ -48,6 +48,8 @@
 .catalog-left {
   grid-column: left;
 
+  padding-bottom: 90px;
+
   display: grid;
   grid-template-columns: 1fr [content]3fr;
   grid-gap: 20px;
@@ -59,6 +61,8 @@
 
 .catalog__filter {
   grid-column: content;
+
+  padding-right: 40px;
 }
 
 .catalog-right {
@@ -71,4 +75,152 @@
 
 .catalog-right__wrapper {
   grid-column: 1;
+}
+
+.form__fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  border: none;
+
+  &:not(:last-of-type) {
+    margin-bottom: 24px;
+  }
+}
+
+.legend-price__wrapper {
+  width: 100%;
+  margin-bottom: 19px;
+
+  display: flex;
+  align-items: center;
+}
+
+.form__legend {
+  margin-right: auto;
+  margin-bottom: 12px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+
+  &--price {
+    margin-bottom: 0px;
+  }
+}
+
+.form__label {
+  display: flex;
+  align-items: flex-start;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+
+  --border-color: rgba(51, 51, 51, 0.3);
+
+  &:hover {
+    --svg-fill: var(--akcent);
+    color: var(--akcent);
+    --border-color: var(--akcent);
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 12px;
+  }
+}
+
+.form__checkbox-marker {
+  position: relative;
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+  border: 2px solid var(--border-color);
+
+  & svg {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+
+    display: none;
+  }
+
+  &--radio {
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+  }
+}
+
+.form__text {
+  margin-left: 9px;
+
+  display: flex;
+}
+
+.form__input {
+  display: none;
+
+  &:checked + .form__checkbox-marker svg {
+    display: block;
+  }
+}
+
+.catalog__title {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 24px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 44px;
+
+  text-transform: uppercase;
+}
+
+.catalog__tags-list {
+  max-width: fit-content;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.tags-list__item {
+  &:not(:last-of-type) {
+    margin-right: 8px;
+  }
+}
+
+.tags-list__item-btn {
+  width: 100%;
+  height: 100%;
+
+  padding: 4px 8px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 19px;
+
+  color: #333;
+
+  background-color: #f0edeb;
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: #f8dbcd;
+    --svg-fill: #ee7d92;
+  }
+
+  &:active {
+    background-color: #f8dbcd;
+    --svg-fill: #ee7d92;
+    color: var(--akcent);
+    border: 1px solid #ee7d92;
+  }
 }
