@@ -71,10 +71,7 @@
 
   display: grid;
   grid-template-columns: 7fr 1fr;
-}
-
-.catalog-right__wrapper {
-  grid-column: 1;
+  place-items: start;
 }
 
 .form__fieldset {
@@ -171,7 +168,27 @@
   }
 }
 
+.catalog-right__wrapper {
+  grid-column: 1;
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.catalog__tag-sort-wrapper {
+  width: 100%;
+  margin-bottom: 24px;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .catalog__title {
+  width: 100%;
   margin: 0;
   padding: 0;
   margin-bottom: 24px;
@@ -223,4 +240,8 @@
     color: var(--akcent);
     border: 1px solid #ee7d92;
   }
+}
+
+.catalog__sort {
+  width: 205px;
 }

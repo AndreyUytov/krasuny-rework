@@ -7,3 +7,8 @@ import './js/popup-menu'
 import './js/popup-selection'
 import './js/range'
 import './js/custom-select'
+
+
+document.addEventListener('select-value', (evt) => {
+  console.log(evt.detail);
+})

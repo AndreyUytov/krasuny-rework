@@ -469,9 +469,7 @@ input[type='radio'].visually-hidden {
   display: none;
 }
 
-.catalog__select {
-  width: 350px;
-
+custom-select {
   & [slot='option']:hover {
     --option-color: rgba(248, 219, 205, 0.2);
   }
