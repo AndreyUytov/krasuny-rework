@@ -64,6 +64,8 @@ const css = `
   flex-direction: column;
   align-items: flex-start;
 
+  background-color: #fff;
+
   box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.15);
   overflow-y: auto;
   z-index: 2000;

@@ -4,7 +4,7 @@
 
   display: grid;
   grid-template-columns: [left]4fr [catalog]8fr;
-  grid-template-rows: auto [catalog]1fr;
+  grid-template-rows: auto auto 1fr;
   grid-column-gap: 40px;
 }
 
@@ -47,6 +47,7 @@
 
 .catalog-left {
   grid-column: left;
+  grid-row: 2 / 3;
 
   padding-bottom: 90px;
 
@@ -67,7 +68,7 @@
 
 .catalog-right {
   grid-column: catalog;
-  grid-row: catalog;
+  grid-row: 2 / 4;
 
   display: grid;
   grid-template-columns: 7fr 1fr;
@@ -181,7 +182,7 @@
 .catalog__tag-sort-wrapper {
   width: 100%;
   margin-bottom: 24px;
-  
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -244,4 +245,36 @@
 
 .catalog__sort {
   width: 205px;
+}
+
+.catalog__card-list {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  grid-template-rows:  auto;
+  grid-auto-flow: row dense;
+  grid-auto-rows: auto;
+  grid-gap: 20px;
+}
+
+.card-list__item {
+  & .card__info {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  & .card__price {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  & .card__discount {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  & .card__bottom {
+    padding: 0px 16px 16px 16px;
+  }
 }
