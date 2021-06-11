@@ -1,3 +1,8 @@
+import { animate, back, makeEaseOut, makeToZero } from './animate'
+
+const backEasyOut = makeEaseOut(back)
+const toZeroBack = makeToZero(backEasyOut)
+
 const css = `
 :host {
   position: relative;
@@ -87,7 +92,7 @@ const css = `
 // обязательные пункты - аттрибут title  у host  - заголовок селекта
 // slot = "option" с data-value, где хранится значение для передачи наверх
 // и обработки собтием "select-value"
-// пример - 
+// пример -
 //<custom-select title="Сортировать по">
 //  <span data-value="price" slot="option">По цене</span>
 //</custom-select>
@@ -96,6 +101,7 @@ class CustomSelect extends HTMLElement {
     super()
     this.isOpen = false
     this.$title = null
+    this.$list = null
 
     this.selectToggle = (evt) => {
       evt.stopPropagation()
@@ -115,18 +121,42 @@ class CustomSelect extends HTMLElement {
       this.isOpen = !this.isOpen
 
       if (this.isOpen) {
-        this.style.setProperty('--display-list', 'flex') // показать/спрятать список опций
         this.style.setProperty('--marker-color', '#333333') // цвет маркера выпадающего списка
         this.style.setProperty('--border-bottom-color', 'var(--akcent)') // цвет бордера под выбранным пунктом
         // еще есть --option-color - определяющий цвет фона опции при наведении
-        this.style.setProperty('--host-shadow', '0px 4px 18px rgba(0, 0, 0, 0.15)') // тень для host
+        this.style.setProperty(
+          '--host-shadow',
+          '0px 4px 18px rgba(0, 0, 0, 0.15)'
+        ) // тень для host
+        this.style.setProperty('--display-list', 'flex') // показать/спрятать список опций
+        this.listHeight
+          ? ''
+          : (this.listHeight = this.$list.getBoundingClientRect().height)
+        this.$list.style.height = '0px'
+
+        animate({
+          duration: 400,
+          timing: backEasyOut,
+          draw: (progress) => {
+            this.$list.style.height = `${this.listHeight * progress}px`
+          },
+        }).then(() => (this.$list.style.height = ''))
         this.style.setProperty('--list-position', 'absolute')
       } else {
-        this.style.setProperty('--display-list', 'none')
-        this.style.setProperty('--marker-color', '')
-        this.style.setProperty('--border-bottom-color', '')
-        this.style.setProperty('--host-shadow', '')
-        this.style.setProperty('--list-position', '')
+        animate({
+          duration: 400,
+          timing: toZeroBack,
+          draw: (progress) => {
+            this.$list.style.height = `${this.listHeight * progress}px`
+          },
+        }).then(() => {
+          this.$list.style.height = ''
+          this.style.setProperty('--display-list', 'none')
+          this.style.setProperty('--marker-color', '')
+          this.style.setProperty('--border-bottom-color', '')
+          this.style.setProperty('--host-shadow', '')
+          this.style.setProperty('--list-position', '')
+        })
       }
     }
 
@@ -139,11 +169,13 @@ class CustomSelect extends HTMLElement {
       this.$title.textContent = optionSlotTextContent
 
       // событие select-value для отправки наверх значения выбранного пункта
-      this.shadowRoot.dispatchEvent(new CustomEvent('select-value', {
-        bubbles: true,
-        composed: true,
-        detail: optionSlotValue
-      }))
+      this.shadowRoot.dispatchEvent(
+        new CustomEvent('select-value', {
+          bubbles: true,
+          composed: true,
+          detail: optionSlotValue,
+        })
+      )
     }
   }
 
@@ -153,6 +185,7 @@ class CustomSelect extends HTMLElement {
 
     this.render()
     this.$title = this.shadowRoot.querySelector('.select__title-text')
+    this.$list = this.shadowRoot.querySelector('.select__list')
   }
 
   render() {
