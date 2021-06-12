@@ -1,0 +1,134 @@
+.card-main__inner {
+  margin-top: 40px;
+
+  width: 100%;
+  display: grid;
+  grid-template-columns: [left-gutter]1fr [content]6fr [aside]5fr ;
+  grid-template-rows: repeat(3, auto);
+  grid-gap: 20px;
+}
+
+.card-main__breadcrumbs {
+  grid-column: content / 4;
+  grid-row: 1;
+}
+
+.card-main__card-content {
+  grid-column: content;
+  grid-row: 2 / 4;
+}
+
+.card-info__gallery-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 76px;
+  grid-gap: 20px;
+  grid-auto-flow: row dense;
+  place-content: start;
+}
+
+.gallery-list__item {
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &--big {
+    grid-column-end: span 4;
+    grid-row-end: span 6;
+  }
+  &--small {
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+  }
+  &--middle {
+    grid-column-end: span 4;
+    grid-row-end: span 4;
+  }
+}
+
+.card-main__aside {
+  position: sticky;
+  top: 177px;
+
+  padding-left: 40px;
+  padding-bottom: 100px;
+
+  grid-column: aside;
+  grid-row: 2;
+
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-gap: 20px;
+
+  z-index: -1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -1000px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+
+    background: #FFF6F3;
+    border-radius: 0px 0px 0px 85px;
+    z-index: -1;
+  }
+}
+
+.aside__top-line {
+  grid-column: 1;
+  width: 100%;
+  margin-bottom: 20px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.aside__instock {
+  padding: 3px 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+
+  color: var(--active);
+
+  border: 1px solid #EC8453;
+  border-radius: 50px;
+}
+
+.aside__title {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 12px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 44px;
+
+  text-transform: uppercase;
+}
+
+.aside__price {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 12px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 44px;
+
+  text-transform: uppercase;
+
+  color: var(--active);
+}

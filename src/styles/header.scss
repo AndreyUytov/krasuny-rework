@@ -69,10 +69,10 @@
 .page-header__user-section {
   grid-column: right-section;
 
-  padding: 24px 0px;
+  padding: 24px 0px 24px 40px;
 
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 }
 
