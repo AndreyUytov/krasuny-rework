@@ -7,6 +7,7 @@ import './js/popup-menu'
 import './js/popup-selection'
 import './js/range'
 import './js/custom-select'
+import './js/similar-slider'
 
 
 document.addEventListener('select-value', (evt) => {

@@ -21,7 +21,7 @@
 
 .page-header__fix-section {
   position: fixed;
-  width: calc(7 / 12 * 100% - 15px);
+  width: calc(7 / 12 * 100%);
   grid-column: left-gutter / right-section;
 
   padding: 24px 40px 24px 25px;
@@ -67,6 +67,7 @@
 }
 
 .page-header__user-section {
+  position: relative;
   grid-column: right-section;
 
   padding: 24px 0px 24px 40px;
@@ -74,6 +75,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  z-index: 1;
 }
 
 .page-header__navigation {
